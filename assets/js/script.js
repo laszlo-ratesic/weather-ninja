@@ -12,7 +12,7 @@ const cardRow = document.getElementById("card-row");
 var formHandler = function (event) {
   event.preventDefault();
 
-  var city = formInput.value.trim();
+  var city = formInput.value.trim().toUpperCase();
 
   if (city) {
     getWeatherData(city);
