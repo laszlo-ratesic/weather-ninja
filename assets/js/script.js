@@ -9,6 +9,8 @@ const uvSpan = document.getElementById("uv-index");
 const forecastHeader = document.getElementById("forecast-header");
 const cardRow = document.getElementById("card-row");
 
+let searchHistory = [];
+
 var formHandler = function (event) {
   event.preventDefault();
 
@@ -109,6 +111,12 @@ var saveSearchTerm = function (searchTerm) {
       return;
     }
   }
+  searchHistory.push(searchTerm);
+  localStorage.setItem('history', JSON.stringify(searchHistory));
+  displaySearchHistory(searchTerm);
+}
+
+function displaySearchHistory(searchTerm) {
   var listItem = document.createElement("li");
   listItem.classList =
     "list-group-item text-center rounded mb-3 border-warning h4";
@@ -125,6 +133,7 @@ var saveSearchTerm = function (searchTerm) {
   })
   listItem.addEventListener("click", historyHandler);
 };
+
 
 var displayFiveDay = function (forecast) {
   forecastHeader.classList = "my-4 text-warning visible";
@@ -190,5 +199,19 @@ var historyHandler = function(event) {
     getWeatherData(itemClicked);
   }
 }
+
+function loadSearchHistory() {
+  searchHistory = JSON.parse(localStorage.getItem('history'));
+
+  if (!searchHistory) {
+    searchHistory = [];
+  }
+
+  for (let i = 0; i < searchHistory.length; i++) {
+    displaySearchHistory(searchHistory[i]);
+  }
+}
+
+loadSearchHistory();
 
 searchForm.addEventListener("submit", formHandler);
