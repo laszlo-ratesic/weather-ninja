@@ -68,7 +68,13 @@ var displayWeather = function (city, searchTerm) {
   var dateObj = new Date(city.dt * 1000);
   var searchDate = dateObj.toLocaleString('en-US', {month: 'numeric', day: 'numeric', year: 'numeric'});
 
-  cityEl.textContent = searchTerm + " (" + searchDate + ")";
+  var imgUrl = 'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@2x.png';
+  var icon = document.createElement('img');
+  icon.setAttribute('src', imgUrl);
+
+  cityEl.textContent = searchTerm + " " + searchDate ;
+
+  cityEl.appendChild(icon);
 
   tempSpan.textContent = city.main.temp;
   windSpan.textContent = city.wind.speed;
@@ -85,14 +91,17 @@ var saveSearchTerm = function (searchTerm) {
       }
   }
   var listItem = document.createElement("li");
-  listItem.classList = "list-group-item text-center rounded mb-3";
+  listItem.classList = "list-group-item text-center rounded mb-3 border-warning";
   listItem.textContent = searchTerm;
   cityList.appendChild(listItem);
 };
 
 var displayFiveDay = function(forecast) {
-  forecastHeader.classList += 'visible';
-  cardRow.classList += 'visible';
+  forecastHeader.classList = 'my-4 text-warning visible';
+  cardRow.classList = 'row d-flex justify-content-around text-dark visible';
+
+  cardRow.innerHTML = '';
+
   for (let i = 1; i < 6; i++) {
     var card = document.createElement('div');
     card.classList = 'card border col-12 col-lg-2 p-0 mb-5';
@@ -101,10 +110,13 @@ var displayFiveDay = function(forecast) {
     cardHeader.className = 'card-header';
     var h5 = document.createElement('div');
     h5.className = 'h5';
-    h5.textContent = '1/26/2022';
+    var dateObj = new Date(forecast.daily[i].dt * 1000);
+    var forecastDate = dateObj.toLocaleString('en-US', {weekday: 'long', month: 'numeric', day: 'numeric', year: 'numeric'});
+    h5.textContent = forecastDate;
     cardHeader.appendChild(h5)
-    var icon = document.createElement('h4');
-    icon.textContent = '☁️';
+    var icon = document.createElement('img');
+    var imgUrl = 'http://openweathermap.org/img/wn/' + forecast.daily[i].weather[0].icon + '@2x.png';
+    icon.setAttribute('src', imgUrl);
     cardHeader.appendChild(icon);
     card.appendChild(cardHeader);
 
