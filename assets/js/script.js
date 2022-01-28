@@ -58,7 +58,21 @@ var displayWeather = function (city, searchTerm) {
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        uvSpan.textContent = data.current.uvi;
+        const uvIndex = data.current.uvi;
+        uvSpan.textContent = uvIndex;
+        let severity;
+        if (uvIndex < 3) {
+          severity = '#3F9500';
+        } else if (uvIndex >= 3 && uvIndex <= 5) {
+          severity = '#f5e300';
+        } else if (uvIndex >= 6 && uvIndex <= 7) {
+          severity = '#ef5800';
+        } else if (uvIndex >= 8 && uvIndex <= 10) {
+          severity = '#cf000E';
+        } else {
+          severity = '#694bcd';
+        }
+        uvSpan.setAttribute('style', 'background-color: ' + severity + ';');
         console.log(data);
         displayFiveDay(data);
       });
