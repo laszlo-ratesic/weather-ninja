@@ -109,15 +109,15 @@ var displayFiveDay = function(forecast) {
     card.appendChild(cardHeader);
 
     var listEl = document.createElement('ul');
-    listEl.className = 'list-group';
+    listEl.classList = 'list-group text-left';
     var tempEl = document.createElement('li');
-    tempEl.className = 'list-group-item';
+    tempEl.classList = 'list-group-item pl-2';
     tempEl.textContent = 'Temp: ' + forecast.daily[i].temp.day + ' °F';
     var windEl = document.createElement('li');
-    windEl.className = 'list-group-item';
+    windEl.classList = 'list-group-item pl-2';
     windEl.textContent = 'Wind: ' + forecast.daily[i].wind_speed + ' MPH';
     var humidEl = document.createElement('li');
-    humidEl.className = 'list-group-item';
+    humidEl.classList = 'list-group-item pl-2';
     humidEl.textContent = 'Humidity: ' + forecast.daily[i].humidity + ' %';
 
     listEl.appendChild(tempEl);
