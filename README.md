@@ -6,10 +6,10 @@ Description
 
 * Refuse adding duplicates to search history
 * Prepend search terms to keep recent near top
+* UV Index color
 
 ## Features I want to implement, but haven't yet
 
-* UV Index color
 * LocalStorage
 * AutoComplete
 * Turn search history into buttons
