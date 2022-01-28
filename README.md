@@ -14,3 +14,7 @@ Description
 * LocalStorage
 * AutoComplete
 * Provide support for state and country
+
+## Known Bugs
+
+* Weather Slab shifting down upon search
