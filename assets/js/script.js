@@ -93,7 +93,9 @@ var saveSearchTerm = function (searchTerm) {
   var listItem = document.createElement("li");
   listItem.classList = "list-group-item text-center rounded mb-3 border-warning h4";
   listItem.textContent = searchTerm;
-  cityList.appendChild(listItem);
+
+  // Prepends search terms to keep most recent near the top
+  cityList.prepend(listItem);
 };
 
 var displayFiveDay = function(forecast) {
