@@ -3,6 +3,7 @@
 Don't get lost in the sauce! Use Weather Slab to bail out of mad rainy days ⛈️ and into sunny skies ahead! ☀️ Or maybe it's a winter chill you're after? ❄️ Whatever the digs you're looking to get into we're here to serve you some FAT weather data by the SLAB. 🕶️
 
 ## 📚 Table of Contents
+
 - [Weather Slab 🌁](#weather-slab-)
   - [📚 Table of Contents](#-table-of-contents)
   - [🧾 Features](#-features)
@@ -14,6 +15,7 @@ Don't get lost in the sauce! Use Weather Slab to bail out of mad rainy days ⛈�
   - [👋 How to Contribute](#-how-to-contribute)
 
 ## 🧾 Features
+
 - Weather dashboard for multiple cities
 - Can be used to plan trips accordingly
 - Current and future weather conditions for any city
@@ -40,6 +42,7 @@ Don't get lost in the sauce! Use Weather Slab to bail out of mad rainy days ⛈�
 🔫 I remain loyal to SCSS, including it on this project, though admittedly not leveraging the extent of its true power, as I chose to use Bootstrap utility classes as the fulcrum for styling here. My hope is that travelers will appreciate the pared down style of this no-nonsense app with remnants of street tags, chalk-writing, and straight-to-the-point weather information.
 
 ## 🛠️ Installation
+
 Locate the dropdown menu labeled 'Code' to the left of the About section in the main page of this repository. From there, select your preferred cloning method from HTTPS, SSH, or the GitHub CLI. For this demonstration, we will be using the SSH method. Copy the link and head to your terminal. From the command line you should enter:
 
     git clone <INSERT_SSH_KEY_HERE>
@@ -47,17 +50,19 @@ Locate the dropdown menu labeled 'Code' to the left of the About section in the 
 Replacing the above placeholder with the link copied from GitHub. This will clone the repository into a local directory on your machine. And that's it! Happy Hacking! 🚀
 
 ## 👨‍🏫 Usage
+
 This code is strictly for use by homies who understand the slab culture as well as anybody who recognizes that H-Town hol's it down, and is only provided as material for study and otherwise double-checking implementation of server-side APIs. Any violations of these use cases will result in rapidly falling barometers, flurries, wooly-wearing, and general grimness of the skies. Screenshots of original mockup are included.
 
-   ![Mockup of Weather Slab.](./assets/images/mockup.gif)
+![Mockup of Weather Slab.](./assets/images/mockup.gif)
 
 Mobile-responsive version
 
 **Supports most major touchscreen devices**
 
-  ![Mobile version mockup of Weather Slab.](./assets/images/responsive-mockup.gif)
+![Mobile version mockup of Weather Slab.](./assets/images/responsive-mockup.gif)
 
 ## 🥂 Credits
+
 UT Austin Coding Boot Camp https://techbootcamps.utexas.edu/coding/
 
 Kyle Ferguson https://github.com/kferguson52
@@ -77,6 +82,7 @@ Free Color Picker from the Microsoft Store https://www.microsoft.com/en-us/p/fre
 The City of Houston https://en.wikipedia.org/wiki/Houston
 
 ## 📇 License
+
 MIT License
 
 Copyright (c) 2022 Keenan R. Chiasson
@@ -100,6 +106,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## 👋 How to Contribute
+
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 See the [Contributor Covenant](https://www.contributor-covenant.org/) for details on how to contribute

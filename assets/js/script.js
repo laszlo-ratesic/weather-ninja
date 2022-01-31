@@ -12,7 +12,6 @@ const cardRow = document.getElementById("card-row");
 
 let searchHistory = [];
 
-
 // The formHandler function is called when the user submits the form.
 function formHandler(event) {
   // Prevents the default refresh from happening
@@ -32,7 +31,7 @@ function formHandler(event) {
     // If the city name is blank, it alerts the user that they need to enter a city name.
     alert("Please enter the name of a city");
   }
-};
+}
 
 // Initial API call to get weather data against city name
 function getWeatherData(city) {
@@ -41,9 +40,9 @@ function getWeatherData(city) {
     city +
     "&units=imperial&appid=292188850e48297da1a005edf38e34bf";
 
-    // Calls the api given our specific params
+  // Calls the api given our specific params
   fetch(apiUrl)
-  // takes the response
+    // takes the response
     .then(function (response) {
       // if we get a 200 (success)
       if (response.ok) {
@@ -63,7 +62,7 @@ function getWeatherData(city) {
     .catch(function (error) {
       alert("Unable to connect to Open Weather API");
     });
-};
+}
 
 // function takes city as a JSON object and cityName as a string
 // to display weather data in slab as well as 5day forecast on cards
@@ -76,7 +75,7 @@ function displayWeather(city, cityName) {
     city.coord.lon +
     "&exclude=hourly&units=imperial&appid=292188850e48297da1a005edf38e34bf";
 
-    // fetch data from API
+  // fetch data from API
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -131,8 +130,7 @@ function displayWeather(city, cityName) {
 
   // Passes city name to save function
   savecityName(cityName);
-};
-
+}
 
 /**
  * Save the city name to the search history array and display it in the search history list
@@ -146,10 +144,9 @@ function savecityName(cityName) {
     }
   }
   searchHistory.push(cityName);
-  localStorage.setItem('history', JSON.stringify(searchHistory));
+  localStorage.setItem("history", JSON.stringify(searchHistory));
   displaySearchHistory(cityName);
 }
-
 
 /**
  * Create a list item with the city name and add it to the list
@@ -160,27 +157,25 @@ function displaySearchHistory(cityName) {
   listItem.classList =
     "list-group-item text-center rounded mb-3 border-warning h4";
   listItem.textContent = cityName;
-  listItem.setAttribute('style', 'cursor:pointer;');
+  listItem.setAttribute("style", "cursor:pointer;");
 
   // Prepends search terms to keep most recent near the top
   cityList.prepend(listItem);
 
   // Hover effects
-  listItem.addEventListener("mouseenter", function(event) {
-    event.target.classList += ' bg-warning';
-  })
-  listItem.addEventListener("mouseleave", function(event) {
-    event.target.classList.remove('bg-warning');
-  })
+  listItem.addEventListener("mouseenter", function (event) {
+    event.target.classList += " bg-warning";
+  });
+  listItem.addEventListener("mouseleave", function (event) {
+    event.target.classList.remove("bg-warning");
+  });
   // click/touch listeners on search history
   listItem.addEventListener("click", historyHandler);
   listItem.addEventListener("touch", historyHandler);
-};
-
+}
 
 // Display the five day forecast.
 function displayFiveDay(forecast) {
-
   /* Create a row of cards to display forecast. */
   forecastHeader.classList = "my-4 text-warning visible";
   cardRow.classList = "row d-flex justify-content-around text-dark visible";
@@ -189,10 +184,11 @@ function displayFiveDay(forecast) {
   /* Create a card for each day of the forecast. */
   for (let i = 1; i < 6; i++) {
     const card = document.createElement("div");
-    card.classList = "card border col-12 col-lg-2 p-0 mb-5";
+    card.classList =
+      "card border col-12 col-lg-2 p-0 mb-5 bg-warning border-warning";
 
     const cardHeader = document.createElement("div");
-    cardHeader.className = "card-header";
+    cardHeader.classList = "card-header bg-warning";
     const h5 = document.createElement("div");
     h5.className = "h5";
 
@@ -218,15 +214,15 @@ function displayFiveDay(forecast) {
     card.appendChild(cardHeader);
 
     const listEl = document.createElement("ul");
-    listEl.classList = "list-group text-left";
+    listEl.classList = "list-group text-left bg-warning";
     const tempEl = document.createElement("li");
-    tempEl.classList = "list-group-item pl-2";
+    tempEl.classList = "list-group-item pl-2 bg-light";
     tempEl.textContent = "Temp: " + forecast.daily[i].temp.day + " °F";
     const windEl = document.createElement("li");
-    windEl.classList = "list-group-item pl-2";
+    windEl.classList = "list-group-item pl-2 bg-light";
     windEl.textContent = "Wind: " + forecast.daily[i].wind_speed + " MPH";
     const humidEl = document.createElement("li");
-    humidEl.classList = "list-group-item pl-2";
+    humidEl.classList = "list-group-item pl-2 bg-light";
     humidEl.textContent = "Humidity: " + forecast.daily[i].humidity + " %";
 
     listEl.appendChild(tempEl);
@@ -237,7 +233,7 @@ function displayFiveDay(forecast) {
 
     cardRow.appendChild(card);
   }
-};
+}
 
 // The historyHandler function is called when the user clicks on a search history item.
 function historyHandler(event) {
@@ -252,13 +248,13 @@ function historyHandler(event) {
   if (itemClicked) {
     getWeatherData(itemClicked);
   }
-};
+}
 
 /**
  * Loads the search history from local storage
  */
 function loadSearchHistory() {
-  searchHistory = JSON.parse(localStorage.getItem('history'));
+  searchHistory = JSON.parse(localStorage.getItem("history"));
 
   // creates empty array if not history in localstorage is found
   if (!searchHistory) {
